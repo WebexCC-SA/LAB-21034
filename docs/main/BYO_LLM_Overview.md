@@ -3,32 +3,45 @@
 icon: material/brain
 ---
 
-## Bring Your Own LLM Overview
+## Configure Multi Agentic Flow Overview
 
-Webex AI Agent supports **Bring Your Own LLM (BYOLLM)** — allowing enterprises to use an external Large Language Model for reasoning and generation while Webex manages media, state, and orchestration.
+**Configure Multi Agentic Flow** connects the agents in Webex Event Health so one inbound call can move between specialists.
 
-This approach is ideal when your organization standardizes on a specific LLM provider but wants to leverage Webex's media, compliance, and contact center integration stack.
+The **Concierge AI Agent** stays the first point of contact. This section adds the agents that complete an OTC order or evaluate symptoms.
 
-### How It Works
+### Call history
 
-- **Webex AI Agent** manages media, state, orchestration, and channel integration.
-- **Your external LLM** handles reasoning, generation, and complex language understanding.
-- **You control** which model drives agent responses across voice and digital channels.
+1. The call goes to the **Concierge AI Agent**. It answers the initial questions, office hours, Cisco Event Pharmacy policies, and other general questions.
+2. If the caller wants to **order OTC medication**, the Concierge transfers the call to another **Webex AI Agent**. That agent completes the order and schedules delivery.
+3. If the caller wants to **evaluate symptoms**, the Concierge moves the call to a **third-party AI Agent**. That agent evaluates symptoms to understand whether the caller can try OTC medication, or should seek urgent medical assistance and contact a doctor.
 
-### AI Engine Architecture
+```mermaid
+flowchart TD
+    Caller[Caller] --> Concierge[Concierge AI Agent]
+    Concierge --> FAQ[Initial questions, office hours,<br/>Cisco Event Pharmacy policies]
+    Concierge -->|Order OTC medication| Fulfillment[Webex AI Agent<br/>Fulfillment AI Agent]
+    Fulfillment --> Complete[Complete the order]
+    Fulfillment --> Delivery[Schedule the delivery]
+    Concierge -->|Evaluate symptoms| ThirdParty[Third-party AI Agent<br/>Symptom evaluation]
+    ThirdParty --> OTC[Try OTC medication]
+    ThirdParty --> Urgent[Seek urgent medical assistance<br/>and contact a doctor]
+```
 
-| Component | Purpose |
+### Agents in this lab
+
+| Agent | Role |
 | --- | --- |
-| Large Language Model | Powers advanced intelligence — understands complex queries, generates responses, performs actions, and answers from knowledge bases |
-| Interim Response Model | Provides instant, real-time responses for a fluid conversational experience |
-| Standalone Query Generator | Transforms incomplete or colloquial inputs into complete, self-contained queries for accurate retrieval |
+| Concierge AI Agent | Answers initial questions, office hours, Cisco Event Pharmacy policies, and other general questions |
+| Webex AI Agent | Completes an OTC medication order and schedules delivery |
+| Third-party AI Agent | Evaluates symptoms and advises OTC medication or urgent medical assistance |
 
 ### In This Lab
 
-In the **Configure Autonomous AI Agent** section, you build the Webex Event Health agent using **Webex AI Pro 1.0**. This section will guide you through connecting your **own custom LLM** as the AI engine for your agent.
+Complete **Configure Concierge Webex AI Agent** first. Then configure the specialist agents and transfers:
 
-!!! note
-    Detailed mission steps for Bring Your Own LLM will be added here. Configure your Autonomous AI Agent first in the preceding section.
+- **Mission 1: Create AI Autonomous Agent**
+- **Mission 2: Integrating the AI Agent with Flow for Voice Calls**
+- **Mission 3: Configure Fulfillment Using Voice Flow**
 
 ### Useful References
 

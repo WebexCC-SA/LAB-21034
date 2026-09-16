@@ -2,19 +2,19 @@
 
 ## Webex Event Health
 
-This lab guides you through building a **Webex Autonomous AI Agent** for **Webex Event Health** — an AI-powered health assistance service for Cisco and Webex event attendees traveling away from their regular healthcare providers.
+This lab guides you through building a **multi-agent Webex Event Health** service for Cisco and Webex event attendees traveling away from their regular healthcare providers.
 
-Attendees can call a Webex AI Agent whenever they feel unwell or need healthcare assistance while at an event.
+Attendees call a single number. The **Concierge AI Agent** answers first — office hours, Cisco Event Pharmacy policies, and other initial questions. If the caller wants to order over-the-counter (OTC) medication, the call transfers to another **Webex AI Agent** that completes the order and schedules delivery. If the caller wants to evaluate symptoms, the call moves to a **third-party AI Agent** that determines whether the caller can try OTC medication or should seek urgent medical assistance and contact a doctor.
 
 ## Learning Objectives
 
 In this lab you will:
 
-- Create an Autonomous AI Agent with a pharmacy and OTC medication knowledge base
-- Integrate the AI Agent with a voice flow for inbound calls
-- Configure fulfillment actions to create medication orders via API
-- Extend the agent with MCP tools for pharmacy locations and order status
-- Test escalation to a healthcare professional when needed
+- Create a Concierge AI Agent that answers initial questions, office hours, and Cisco Event Pharmacy policies
+- Integrate the Concierge AI Agent with a voice flow for inbound calls
+- Transfer callers who want to order OTC medication to a second Webex AI Agent that completes the order and schedules delivery
+- Move callers who want symptom evaluation to a third-party AI Agent
+- Determine whether the caller can try OTC medication or should seek urgent medical assistance and contact a doctor
 
 ## Disclaimer
 

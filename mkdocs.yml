@@ -88,16 +88,21 @@ nav:
   - Home: index.md
   - Getting Started:
       - Overview: ./main/overview.md
-  - Configure Autonomous AI Agent:
-      - Autonomous AI Agent:
+  - Configure Concierge Webex AI Agent:
+      - Concierge Webex AI Agent:
           - Guide:
               - "Overview": ./main/AI_Lab_Overview.md
               - "Mission 1: Create AI Autonomous Agent": ./main/AIAgentTrack_Mission1.md
               - "Mission 2: Integrating the AI Agent with Flow for Voice Calls": ./main/AI_Lab_Aut_MissionX.md
-              - "Mission 3: Configure Fulfillment Using Voice Flow": ./main/AI_Lab_Aut_Voice_Flow_Fulfillment.md
           - Conclusion: ./main/AI_Lab_Aut_Conclusion.md
-  - Bring Your Own LLM:
-      - Overview: ./main/BYO_LLM_Overview.md
+  - Configure Multi Agentic Flow:
+      - Multi Agentic Flow:
+          - Guide:
+              - "Overview": ./main/BYO_LLM_Overview.md
+              - "Mission 1: Create AI Autonomous Agent": ./main/Multi_Agentic_Mission1.md
+              - "Mission 2: Integrating the AI Agent with Flow for Voice Calls": ./main/Multi_Agentic_Mission2.md
+              - "Mission 3: Configure Fulfillment Using Voice Flow": ./main/Multi_Agentic_Mission3.md
+          - Conclusion: ./main/Multi_Agentic_Conclusion.md
   # - Bonus - Integrate MCP Server:
   #     - Guide:
   #         - "Overview": ./main/MCP_Server_Overview.md
