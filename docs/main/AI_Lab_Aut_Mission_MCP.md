@@ -24,7 +24,7 @@ For this mission, the MCP server was created and deployed on AWS with two tools:
 
 This MCP Server repository you can find on GitHub below. In the **READMe.md** file you will be able to find instructions on how to deploy it on AWS. You can use it as the example for implementing the MCP server for your production tenant, but for this lab it is already deployed so the link below is just the reference of the source code.</br>
 </br>
-**<copy>https://github.com/mdanylch/event_health_mcp_21209</copy>**
+**<copy>https://github.com/mdanylch/event_health_mcp_21034</copy>**
 
 In this mission you will work on adding this External MCP server to Webex cloud and plug it in with your AI Agent.
 

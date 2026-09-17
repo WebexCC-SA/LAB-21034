@@ -30,7 +30,7 @@ Your mission is to:
 
 6. Provide the following information in the **Add the essential details**, then click **Create**:
 
-    > Agent Name: **<copy><w class="attendee"></w>\_21209_AutoAI_Lab</copy>**
+    > Agent Name: **<copy><w class="attendee"></w>\_21034_AutoAI_Lab</copy>**
     >
     > System ID is created automatically
     >
@@ -135,7 +135,7 @@ Your mission is to:
 
     ![Profiles](../graphics/Lab1_AI_Agent/2.4.1.png)
 
-12. Switch to **Knowledge** tab. From drop-down list, search for **Lab_21209_BYOLLM**. 
+12. Switch to **Knowledge** tab. From drop-down list, search for **Lab_21034_BYOLLM**. 
     ![Profiles](../graphics/Lab1_AI_Agent/2.4.2.png)
 
 13. **Publish** the AI Agent. Provide any version name in popped up window (e.g. "V1").<br>

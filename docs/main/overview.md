@@ -5,7 +5,7 @@ icon: material/bullseye-arrow
 
 ## Get your login credentials
 
-On your screen, look for the file named Credentials_21209_(ID). Open the file; you should see the following information:
+On your screen, look for the file named Credentials_21034_(ID). Open the file; you should see the following information:
    ![Profiles](../graphics/Lab1_AI_Agent/Login5.png)
 
 As the next step, you need to set up your lab for your Attendee ID. In this case, you will all do configuration on the same tenant without interrupting other users.
