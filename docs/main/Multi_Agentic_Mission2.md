@@ -16,7 +16,7 @@ Integrate the AI Agent with the Voice Flow.
 1. Open [Collaboration Control Hub](https://admin.webex.com){:target="_blank"} and go to **Contact Center** navigate to **Flows**, click on **Manage Flows** dropdown list and select **Create Flows**.
    ![Profiles](../graphics/Lab1_AI_Agent/2.47.gif)
 
-2. On the next page, search for the flow that is related to your ID **<copy>AutonomousAI_Flow_21034_<w class="attendee"></w></copy>**. Open the flow by clicking on it.
+2. On the next page, search for the flow that is related to your ID **<copy>MultiAgent_21034_<w class="attendee"></w></copy>**. Open the flow by clicking on it.
    ![Profiles](../graphics/Lab1_AI_Agent/2.48.ab.png)
 
 3. Click on **Edit** to start editing the flow.
@@ -32,7 +32,7 @@ Integrate the AI Agent with the Voice Flow.
    ![Profiles](../graphics/Lab1_AI_Agent/2.52.png)
 
 7. Click on **<copy><w class="attendee"></w>\_21034_Channel</copy>**. In the **Entry Point** settings section, change the following and then **Save** the changes.<br/>
-    Routing Flow: **<copy>AutonomousAI_Flow_21034_<w class="attendee"></w></copy>**<br/>
+    Routing Flow: **<copy>MultiAgent_21034_<w class="attendee"></w></copy>**<br/>
     Version Label: **Latest**<br/>
     ![Profiles](../graphics/Lab1_AI_Agent/2.53.gif)
 8. Dial the support number assigned to your **<w class="attendee"></w>\_21034_Channel** to test the Autonomous AI Agent over a voice call.
