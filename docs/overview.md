@@ -1,8 +1,8 @@
 # Overview
 
-## Webex Event Health
+## Cisco Event Health
 
-This lab guides you through building a **multi-agent Webex Event Health** service for Cisco and Webex event attendees traveling away from their regular healthcare providers.
+This lab guides you through building a **multi-agent Cisco Event Health** service for Cisco and Webex event attendees traveling away from their regular healthcare providers.
 
 Attendees call a single number. The **Concierge AI Agent** answers first — office hours, Cisco Event Pharmacy policies, and other initial questions. If the caller wants to order over-the-counter (OTC) medication, the call transfers to another **Webex AI Agent** that completes the order and schedules delivery. If the caller wants to evaluate symptoms, the call moves to a **third-party AI Agent** that determines whether the caller can try OTC medication or should seek urgent medical assistance and contact a doctor.
 

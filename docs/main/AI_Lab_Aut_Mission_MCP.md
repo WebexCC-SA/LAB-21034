@@ -69,9 +69,9 @@ In this mission you will work on adding this External MCP server to Webex cloud 
 9. For the Agentic App URL enter **<copy>https://y4drgmvgpb.us-east-1.awsapprunner.com/mcp</copy>** and for Agentic App auth type select **Custom Headers**. Finally click on **Add Agentic App**.
 ![Profiles](../graphics/Lab1_AI_Agent/15.8.png)
 
-### Task 2. Enable the Agentic App in Control Hub.
+### Task 2. Enable the Agentic App in Collaboration Control Hub.
 
-1. Go to Control Hub. If you are under the Contact Center settings, click on **Main Menu**.
+1. Go to Collaboration Control Hub. If you are under the Contact Center settings, click on **Main Menu**.
 ![Profiles](../graphics/Lab1_AI_Agent/15.9_.png)
 
 2. Open **Apps**, then click on **Agentic Apps**.

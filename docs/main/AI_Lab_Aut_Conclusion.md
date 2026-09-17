@@ -1,4 +1,4 @@
-In this lab, you successfully configured the **Concierge AI Agent** as the first point of contact for **Webex Event Health**.
+In this lab, you successfully configured the **Concierge AI Agent** as the first point of contact for **Cisco Event Health**.
 
 ### Key Capabilities Implemented
 

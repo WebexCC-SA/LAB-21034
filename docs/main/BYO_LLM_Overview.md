@@ -5,7 +5,7 @@ icon: material/brain
 
 ## Configure Multi Agentic Flow Overview
 
-**Configure Multi Agentic Flow** connects the agents in Webex Event Health so one inbound call can move between specialists.
+**Configure Multi Agentic Flow** connects the agents in Cisco Event Health so one inbound call can move between specialists.
 
 The **Concierge AI Agent** stays the first point of contact. This section adds the agents that complete an OTC order or evaluate symptoms.
 

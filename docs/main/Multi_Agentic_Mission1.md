@@ -18,7 +18,7 @@ Your mission is to:
 
 ### Task 1. Create a new AI Agent with Knowledge Base
 
-1. Go to [Webex Control Hub](https://admin.webex.com){:target="\_blank"}.
+1. Go to [Collaboration Control Hub](https://admin.webex.com){:target="\_blank"}.
 
 2. Open **Contact Center** from the left side navigation panel, and under **Overview > Quick Links**, click on **Webex AI Agent**.
    ![Profiles](../graphics/Lab1_AI_Agent/L1M6_OpenWebexAI1.gif)
@@ -30,7 +30,7 @@ Your mission is to:
 
 6. Provide the following information in the **Add the essential details**, then click **Create**:
 
-    > Agent Name: **<copy><w class="attendee"></w>\_21034_AutoAI_Lab</copy>**
+    > Agent Name: **<copy><w class="attendee"></w>\_21034_Concierge</copy>**
     >
     > System ID is created automatically
     >
@@ -42,14 +42,14 @@ Your mission is to:
 
     ![Profiles](../graphics/Lab1_AI_Agent/2.3.2.png)
 
-8. Customize the Welcome message with: **_<copy>Hi, I'm CareGuide, your Webex Event Health assistant. How can I help you today?</copy>_**
+8. Customize the Welcome message with: **_<copy>Hi, I'm CareGuide, your Cisco Event Health assistant. How can I help you today?</copy>_**
 
     ![Profiles](../graphics/Lab1_AI_Agent/2.16.png)
 
 9. Click on **Instructions** and add additional specific guidelines that you would like the AI Agent to follow. Just **copy the text below and paste it to the Instructions section** (use the **copy** icon on the code block): <br>
 
     ``` text
-    You are a health assistance agent for Webex Event Health serving event attendees.
+    You are a health assistance agent for Cisco Event Health serving event attendees.
 
     Routing and escalation:
     - If the attendee describes severe symptoms (chest pain, difficulty breathing, loss of consciousness, severe allergic reaction, or any life-threatening condition), immediately transfer the call to a healthcare professional using Transfer_to_different_department. Do not attempt to treat or diagnose emergency conditions.
@@ -135,7 +135,7 @@ Your mission is to:
 
     ![Profiles](../graphics/Lab1_AI_Agent/2.4.1.png)
 
-12. Switch to **Knowledge** tab. From drop-down list, search for **Lab_21034_BYOLLM**. 
+12. Switch to **Knowledge** tab. From drop-down list, search for **Lab_21034_Concierge**. 
     ![Profiles](../graphics/Lab1_AI_Agent/2.4.2.png)
 
 13. **Publish** the AI Agent. Provide any version name in popped up window (e.g. "V1").<br>

@@ -26,7 +26,7 @@ In this Mission you will be using the Voice flow to execute the API call to crea
 
 1. Go to **Webex AI Agent Studio** Portal.
 
-2. Select your AI agent with name **<copy><w class="attendee"></w>\_21034_AutoAI_Lab</copy>** that you created earlier and go to **Actions**. You will see one Action has already been created by default for the Agent Handover. We will now create one more action.
+2. Select your AI agent with name **<copy><w class="attendee"></w>\_21034_Concierge</copy>** that you created earlier and go to **Actions**. You will see one Action has already been created by default for the Agent Handover. We will now create one more action.
    ![Profiles](../graphics/Lab1_AI_Agent/2.17.png)
 
 3. Click **Create New Action**. From the drop-down option, select **Fulfillment**.

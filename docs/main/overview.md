@@ -10,28 +10,22 @@ On your screen, look for the file named Credentials_21034_(ID). Open the file; y
 
 As the next step, you need to set up your lab for your Attendee ID. In this case, you will all do configuration on the same tenant without interrupting other users.
 <!-- Markdown content with embedded HTML -->
-<div>
-    <h3><b>Please submit the Attendee ID below.</b></h3> 
-    <h3>All configuration entries in the lab guide will be renamed to include your Attendee ID.</h3>
+<div class="attendee-id-box">
+    <h3><b>Please submit the Attendee ID below.</b></h3>
+    <p>All configuration entries in the lab guide will be renamed to include your Attendee ID.</p>
     <form id="info">
         <label for="attendee">Attendee ID:</label>
-        <input type="text" id="attendee" name="attendee" placeholder="Enter 3 digits" required>
-        <button onclick="setValues()">Save</button>
+        <input type="text" id="attendee" name="attendee" placeholder="Enter 3 digits" maxlength="3" required>
+        <button type="button" onclick="setValues()">Save</button>
     </form>
-
-    <br>
-
-    <p>Your stored Attendee ID is:<w class="attendee"> No ID stored</w></p>
-
+    <p class="attendee-id-status">Your stored Attendee ID is: <w class="attendee">No ID stored</w></p>
 </div>
 
 ## Overview of the Use Case
 
-You are designing **Webex Event Health** — a multi-agent health assistance service for Cisco and Webex event attendees who are traveling and away from their regular healthcare providers.
+You are designing **Cisco Event Health** — a multi-agent health assistance service for Cisco and Webex event attendees who are traveling and away from their regular healthcare providers.
 
 Attendees call a single number whenever they feel unwell or need healthcare assistance while at an event. The **Concierge AI Agent** answers first. Depending on what the caller needs, the call is transferred to another Webex AI Agent or to a third-party AI Agent.
-
-[Webex AI Agent use case example](https://blog.webex.com/customer-experience/announcing-general-availability-of-webex-ai-agent-paving-way-new-era-cx/){:target="_blank"}
 
 ### Business Problem
 
@@ -42,6 +36,16 @@ While traveling to an event, attendees may:
 - Need pharmacy office hours or Cisco Event Pharmacy policies
 - Need over-the-counter (OTC) medication delivered to their hotel
 - Need help evaluating symptoms before they try OTC medication or seek urgent care
+
+### Event health benefit
+
+As part of this demonstration program:
+
+- The **first $15 of eligible OTC medication purchases is covered** for the attendee.
+- **Hotel delivery is free** for eligible orders.
+- If an eligible purchase exceeds $15, the attendee is responsible for the remaining amount.
+
+This benefit is offered as a way to thank attendees for joining the event and to make their event experience more convenient and comfortable.
 
 ### Call history
 
@@ -66,4 +70,4 @@ flowchart TD
 
 The lab design and configuration examples provided are for educational purposes. For production design queries, please consult your Cisco representative or an authorized Cisco partner.
 
-Let's get started and discover how a **multi-agent Webex Event Health** service delivers intelligent assistance for event attendees!
+Let's get started and discover how a **multi-agent Cisco Event Health** service delivers intelligent assistance for event attendees!

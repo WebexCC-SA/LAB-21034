@@ -15,7 +15,7 @@ icon: material/server-network
 
 ### Tools in This Lab
 
-The MCP server deployed for Webex Event Health includes:
+The MCP server deployed for Cisco Event Health includes:
 
 1. **Check pharmacy and clinic locations** — addresses stored on the MCP server
 2. **Check medication order status** — queries the order API by order ID
@@ -26,4 +26,4 @@ Attendee asks a question → Webex AI Agent → MCP Server tool → External API
 
 ---
 
-Proceed to the guide below to register the Agentic App, enable it in Control Hub, and connect MCP tools to your AI agent.
+Proceed to the guide below to register the Agentic App, enable it in Collaboration Control Hub, and connect MCP tools to your AI agent.

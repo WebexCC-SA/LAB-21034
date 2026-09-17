@@ -52,3 +52,108 @@ form#info button{
 form#info button:hover{
     background-color:rgb(195, 193, 201);
 }
+
+.md-typeset .attendee-id-box {
+  margin: 1.5rem 0 2rem;
+  padding: 1.35rem 1.5rem 1.2rem;
+  border: 2px solid #00bdeb;
+  border-radius: 12px;
+  background: #e6f8fd;
+  box-shadow: 0 6px 18px rgba(0, 189, 235, 0.2);
+}
+
+.md-typeset .attendee-id-box h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  color: #0b5cab;
+  font-size: 1.35rem;
+}
+
+.md-typeset .attendee-id-box > p {
+  margin: 0 0 1rem;
+  color: #0b5cab;
+}
+
+.md-typeset .attendee-id-box form#info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.md-typeset .attendee-id-box form#info label {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #051C2C;
+}
+
+.md-typeset .attendee-id-box form#info input {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 0.9rem;
+  min-width: 12.5rem;
+  border: 2px solid #00bdeb;
+  border-radius: 8px;
+  background: #fff;
+  color: #051C2C;
+}
+
+.md-typeset .attendee-id-box form#info input:focus {
+  outline: 3px solid #3a7fff;
+  outline-offset: 1px;
+  border-color: #3a7fff;
+}
+
+.md-typeset .attendee-id-box form#info button {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background: #00bdeb;
+  border: 2px solid #00bdeb;
+  border-radius: 25px;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+}
+
+.md-typeset .attendee-id-box form#info button:hover {
+  background: #0099c4;
+  border-color: #0099c4;
+  color: #fff;
+}
+
+.md-typeset .attendee-id-box .attendee-id-status {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #051C2C;
+}
+
+.md-typeset .attendee-id-box w.attendee {
+  color: #0070c0;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .attendee-id-box {
+  background: rgba(0, 189, 235, 0.14);
+  border-color: #00bdeb;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .attendee-id-box h3,
+[data-md-color-scheme="slate"] .md-typeset .attendee-id-box > p,
+[data-md-color-scheme="slate"] .md-typeset .attendee-id-box form#info label,
+[data-md-color-scheme="slate"] .md-typeset .attendee-id-box .attendee-id-status {
+  color: #7adfff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .attendee-id-box form#info input {
+  background: #0d2a38;
+  color: #fff;
+  border-color: #00bdeb;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .attendee-id-box w.attendee {
+  color: #7adfff;
+}

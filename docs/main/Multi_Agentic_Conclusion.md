@@ -1,4 +1,4 @@
-In this lab, you successfully configured **Multi Agentic Flow** for **Webex Event Health**.
+In this lab, you successfully configured **Multi Agentic Flow** for **Cisco Event Health**.
 
 ### Key Capabilities Implemented
 

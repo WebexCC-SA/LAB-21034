@@ -13,7 +13,7 @@ Integrate the AI Agent with the Voice Flow.
 
 ### Task 1. Build WxCC voice flow with AI Agent.
 
-1. Open [Control Hub](https://admin.webex.com){:target="_blank"} and go to **Contact Center** navigate to **Flows**, click on **Manage Flows** dropdown list and select **Create Flows**.
+1. Open [Collaboration Control Hub](https://admin.webex.com){:target="_blank"} and go to **Contact Center** navigate to **Flows**, click on **Manage Flows** dropdown list and select **Create Flows**.
    ![Profiles](../graphics/Lab1_AI_Agent/2.47.gif)
 
 2. On the next page, search for the flow that is related to your ID **<copy>AutonomousAI_Flow_21034_<w class="attendee"></w></copy>**. Open the flow by clicking on it.
@@ -22,7 +22,7 @@ Integrate the AI Agent with the Voice Flow.
 3. Click on **Edit** to start editing the flow.
    ![Profiles](../graphics/Lab1_AI_Agent/2.48.ac.png)
 
-4. Click on **VirtualAgentV2** node and change the Virtual Agent name to the one that is related to your ID - **<copy><w class="attendee"></w>_21034_AutoAI_Lab</copy>**.
+4. Click on **VirtualAgentV2** node and change the Virtual Agent name to the one that is related to your ID - **<copy><w class="attendee"></w>_21034_Concierge</copy>**.
    ![Profiles](../graphics/Lab1_AI_Agent/2.48.ad.gif)
 
 5. Validate and publish the flow. 

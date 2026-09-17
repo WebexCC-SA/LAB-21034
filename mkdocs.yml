@@ -91,7 +91,7 @@ nav:
   - Configure Concierge Webex AI Agent:
       - Concierge Webex AI Agent:
           - Guide:
-              - "Overview": ./main/AI_Lab_Overview.md
+              - "Configure Concierge Webex AI Agent": ./main/AI_Lab_Overview.md
               - "Mission 1: Create AI Autonomous Agent": ./main/AIAgentTrack_Mission1.md
               - "Mission 2: Integrating the AI Agent with Flow for Voice Calls": ./main/AI_Lab_Aut_MissionX.md
           - Conclusion: ./main/AI_Lab_Aut_Conclusion.md
