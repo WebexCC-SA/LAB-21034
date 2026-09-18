@@ -14,7 +14,7 @@ Fulfillment Action is a task that an AI agent performs by understanding user int
 
 ## Mission overview
 
-In this Mission you will be using the Voice flow to execute the API call to create the medication order with a third party system.
+In this Mission you will be using the Voice flow to execute the API call to create the medication order with a third-party system.
 
 ![Profiles](../graphics/Lab1_AI_Agent/Fulfilment.png)
 

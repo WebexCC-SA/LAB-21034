@@ -13,31 +13,45 @@ Integrate the AI Agent with the Voice Flow.
 
 ### Task 1. Build WxCC voice flow with AI Agent.
 
-1. Open [Collaboration Control Hub](https://admin.webex.com){:target="_blank"} and go to **Contact Center** navigate to **Flows**, click on **Manage Flows** dropdown list and select **Create Flows**.
+1. Open [Collaboration Control Hub](https://admin.webex.com){:target="_blank"}, go to **Contact Center**, navigate to **Flows**, click the **Manage Flows** dropdown list, and select **Create Flows**.
    ![Profiles](../graphics/Lab1_AI_Agent/2.47.gif)
 
-2. On the next page select **Start from scratch** and click on **Next**
+2. On the next page, select **Start from scratch** and click **Next**.
    ![Profiles](../graphics/Lab1_AI_Agent/2.48.adf.png)
 
-3. Name the flow **<copy>MultiAgent_21034_<w class="attendee"></w></copy>** and click on **Create flow**
+3. In the Voice Flow Designer, from the left side, move the **VirtualAgentV2** node and connect **Start Flow** to the **VirtualAgentV2** node.
    ![Profiles](../graphics/Lab1_AI_Agent/2.48.ac.png)
 
-4. From the left side move **Virtual Agent V2 node and connect the Start Flow to the Virtual Agent V2 node
+4. Click **VirtualAgentV2**. In the **Contact Center AI Config**, select **Webex AI Agent (Autonomous)**. Under the **Virtual agent** config, select the AI Agent that you created in the previous mission — **<copy><w class="attendee"></w>_21034_Concierge</copy>**.
+   ![Profiles](../graphics/Lab1_AI_Agent/2.48.ad1.gif)
 
-4. Click on **VirtualAgentV2** node and change the Virtual Agent name to the one that is related to your ID - **<copy><w class="attendee"></w>_21034_Concierge</copy>**.
-   ![Profiles](../graphics/Lab1_AI_Agent/2.48.ad.gif)
+5. Add a **Disconnect Contact** node and connect the **Handled** output from the **VirtualAgentV2** node to the **Disconnect Contact** node.
+   ![Profiles](../graphics/Lab1_AI_Agent/2.48.ac1.png)
 
-5. Validate and publish the flow. 
+6. Add a **Queue Contact** node and connect the **Escalate** output from **VirtualAgentV2** to the **Queue Contact** node.
    ![Profiles](../graphics/Lab1_AI_Agent/2.48.ae.gif)
 
-6. Assign the Flow to your **Entry Point**. Do this by first going to **Entry Point** and search for your channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**.
+7. Click **Queue Contact**. Select Channel type as **Voice**. Select the Queue as **<copy>21034_Queue</copy>**.
+   ![Profiles](../graphics/Lab1_AI_Agent/2.48.ae2.gif)
+
+8. Add a **Play Music** node. Connect the **Queue Contact** node to the **Play Music** node. Loop the **Play Music** node to itself.
+   ![Profiles](../graphics/Lab1_AI_Agent/2.48.ae3.gif)
+
+9. Click the **Play Music** node and select **defaultmusic_on_hold.wav** as the music file.
+   ![Profiles](../graphics/Lab1_AI_Agent/2.48.ae4.gif)
+
+10. Validate and publish the flow with the **Latest** tag.
+   ![Profiles](../graphics/Lab1_AI_Agent/2.48.ae5.gif)
+
+11. Assign the flow to your **Entry Point**. First go to **Entry Point** and search for your channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**.
    ![Profiles](../graphics/Lab1_AI_Agent/2.52.png)
 
-7. Click on **<copy><w class="attendee"></w>\_21034_Channel</copy>**. In the **Entry Point** settings section, change the following and then **Save** the changes.<br/>
+12. Go back to Collaboration Control Hub > Contact Center. Click **Entry Points**. Click **<copy><w class="attendee"></w>\_21034_Channel</copy>**. In the **Entry Point** settings section, change the following and then **Save** the changes.<br/>
     Routing Flow: **<copy>MultiAgent_21034_<w class="attendee"></w></copy>**<br/>
     Version Label: **Latest**<br/>
     ![Profiles](../graphics/Lab1_AI_Agent/2.53.gif)
-8. Dial the support number assigned to your **<w class="attendee"></w>\_21034_Channel** to test the Autonomous AI Agent over a voice call.
+
+13. Dial the support number assigned to your **<w class="attendee"></w>\_21034_Channel** to test the Concierge AI Agent over a voice call.
    ![Profiles](../graphics/Lab1_AI_Agent/2.84.png)
 
 <p style="text-align:center"><strong>Congratulations, you have officially completed this mission! 🎉🎉 </strong></p>

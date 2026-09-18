@@ -26,7 +26,7 @@ Your mission is to:
 3. Navigate to **AI Agents** from the left-hand side menu panel and click on **Create Agent**.
    ![Profiles](../graphics/Lab1_AI_Agent/2.58.gif)
 4. Select **Start from Scratch** and click **Next**.
-5. On **Create an AI agent** page select the type of agent: **Autonomous**.
+5. On the **Create an AI agent** page, select the type of agent: **Autonomous**.
 
 6. Provide the following information in the **Add the essential details**, then click **Create**:
 
@@ -203,10 +203,10 @@ Your mission is to:
 
     ![Profiles](../graphics/Lab1_AI_Agent/2.4.1.png)
 
-12. Switch to **Knowledge** tab. From drop-down list, search for **Lab_21034_Concierge**. 
+12. Switch to the **Knowledge** tab. From the drop-down list, search for **Lab_21034_Concierge**. 
     ![Profiles](../graphics/Lab1_AI_Agent/2.4.2.png)
 
-13. **Save changes** and **Publish** the AI Agent. Provide any version name in popped up window (e.g. "V1").<br>
+13. **Save changes** and **Publish** the AI Agent. Provide any version name in the pop-up window (e.g. "V1").<br>
     ![Profiles](../graphics/Lab1_AI_Agent/2.6.gif)
 
 

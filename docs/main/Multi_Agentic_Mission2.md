@@ -13,7 +13,7 @@ Integrate the AI Agent with the Voice Flow.
 
 ### Task 1. Build WxCC voice flow with AI Agent.
 
-1. Open [Collaboration Control Hub](https://admin.webex.com){:target="_blank"} and go to **Contact Center** navigate to **Flows**, click on **Manage Flows** dropdown list and select **Create Flows**.
+1. Open [Collaboration Control Hub](https://admin.webex.com){:target="_blank"}, go to **Contact Center**, navigate to **Flows**, click the **Manage Flows** dropdown list, and select **Create Flows**.
    ![Profiles](../graphics/Lab1_AI_Agent/2.47.gif)
 
 2. On the next page, search for the flow that is related to your ID **<copy>MultiAgent_21034_<w class="attendee"></w></copy>**. Open the flow by clicking on it.
@@ -35,7 +35,7 @@ Integrate the AI Agent with the Voice Flow.
     Routing Flow: **<copy>MultiAgent_21034_<w class="attendee"></w></copy>**<br/>
     Version Label: **Latest**<br/>
     ![Profiles](../graphics/Lab1_AI_Agent/2.53.gif)
-8. Dial the support number assigned to your **<w class="attendee"></w>\_21034_Channel** to test the Autonomous AI Agent over a voice call.
+8. Dial the support number assigned to your **<w class="attendee"></w>\_21034_Channel** to test the Concierge AI Agent over a voice call.
    ![Profiles](../graphics/Lab1_AI_Agent/2.84.png)
 
 <p style="text-align:center"><strong>Congratulations, you have officially completed this mission! 🎉🎉 </strong></p>
