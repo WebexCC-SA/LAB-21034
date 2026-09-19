@@ -3,147 +3,126 @@
 icon: material/medal
 ---
 
-# Mission 1: Create AI Autonomous Agent
+# Mission 1: Configure Transfer Action to the OTC Medication Order Agent
+
+**<details><summary>What is a Transfer Action? <span style="color: orange;"></span></summary>**
+
+Transfer Action is a task that an AI agent performs by understanding user intents and transferring the interaction back to the WxCC flow with custom data for further processing.
+
+## </details>
 
 ## Mission overview
 
 Your mission is to:
 
-**Create an AI agent and attach the knowledge base (KB)** to enable the agent to answer questions about available OTC medications, partner clinics, and assist attendees with creating a medication order or transferring the interaction to a healthcare professional.
-![Profiles](<../graphics/Lab1_AI_Agent/Untitled(9).jpg>)
+Configure a Transfer action on the **Concierge AI Agent** so that when the caller wants to order over-the-counter (OTC) medication, the call is transferred to the specialist agent **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>**.
+
+![Profiles](../graphics/Lab1_AI_Agent/TransferToFlow.png)
 
 ---
 
 ## Build
 
-### Task 1. Create a new AI Agent with Knowledge Base
+### Task 1. Create Transfer to flow action in AI Agent Studio portal
 
-1. Go to [Collaboration Control Hub](https://admin.webex.com){:target="\_blank"}.
+1. Go to **Webex AI Agent** Studio portal.
 
-2. Open **Contact Center** from the left side navigation panel, and under **Overview > Quick Links**, click on **Webex AI Agent**.
-   ![Profiles](../graphics/Lab1_AI_Agent/L1M6_OpenWebexAI1.gif)
+2. Open your Concierge AI agent with name **<copy><w class="attendee"></w>\_21034_Concierge</copy>** and then click on **Actions**.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.2.png)
 
-3. Navigate to **AI Agents** from the left-hand side menu panel and click on **Create Agent**.
-   ![Profiles](../graphics/Lab1_AI_Agent/2.58.gif)
-4. Select **Start from Scratch** and click **Next**.
-5. On the **Create an AI agent** page, select the type of agent: **Autonomous**.
+3. Select **Add actions** option and create new **Transfer** action.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.3.gif)
 
-6. Provide the following information in the **Add the essential details**, then click **Create**:
+4. Name the action as **<copy>Transfer_to_OTC_Medication_Order</copy>**.<br/> In the **Transfer condition** field, paste **<copy>When the customer wants to order OTC medication, transfer the call to the OTC Medication Order specialist agent</copy>**.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.4a.png)
 
-    > Agent Name: **<copy><w class="attendee"></w>\_21034_Concierge</copy>**
-    >
-    > System ID is created automatically
-    >
-    > AI engine: **Webex AI Pro-US 2.0**
+5. Click on add **New input entity**. Configure it with the following: <br>
+   > Entity name: **<copy>specialist</copy>**<br>
+   > Entity type: **String**<br>
+   > Entity description: **<copy>Collect if the customer wants to order OTC medication</copy>**<br>
+   > Entity example: **<copy>OTC_Medication_Order</copy>**<br>
+   ![Profiles](../graphics/Lab1_AI_Agent/11.5.png)
 
-    ![Profiles](../graphics/Lab1_AI_Agent/2.3.1.png)
+6. Finally, click on **Add** to add the new action.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.6.png)
 
-7. Disable **AI transparency** by turning off the toggle. For the disable message, enter **<copy>Lab test</copy>**, then click **Keep it disabled**.
+7. **Publish** the AI Agent.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.14.png)
 
-    ![Profiles](../graphics/Lab1_AI_Agent/2.3.2.png)
+### Task 2. Configure voice flow to transfer callers to the OTC Medication Order agent
 
-8. Customize the Welcome message with: **_<copy>Hi, I'm CareGuide, your Cisco Event Health assistant. How can I help you today?</copy>_**
+1. Open your Voice flow **<copy>MultiAgent_21034_<w class="attendee"></w></copy>**.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.7.gif)
 
-    ![Profiles](../graphics/Lab1_AI_Agent/2.16.png)
+2. Click on **Edit** to edit the flow.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.8.gif)
 
-9. Click on **Instructions** and add additional specific guidelines that you would like the AI Agent to follow. Just **copy the text below and paste it to the Instructions section** (use the **copy** icon on the code block): <br>
+3. (<span style="color: red;"><strong>Read Only</strong></span>) In the previous task, we created an action with the **specialist** entity. The information about the value of the entity can be retrieved from the Activity Output Variable, specifically from **VirtualAgentV2XXXMetaData**.
+   In the next steps, we will add the **Set Variable** block to see the MetaData in JSON format, and then you will add the **Parse** and **Case** nodes to handle the logic and send the call to the specialist agent **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>**.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.11.png)
 
-    ``` text
-    You are a health assistance agent for Cisco Event Health serving event attendees.
+4. Create a new flow variable with name **<copy>MetaData_AI</copy>**. Select type as **string** and then click **Save**.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.9.gif)
 
-    Routing and escalation:
-    - If the attendee describes severe symptoms (chest pain, difficulty breathing, loss of consciousness, severe allergic reaction, or any life-threatening condition), immediately transfer the call to a healthcare professional using Transfer_to_different_department. Do not attempt to treat or diagnose emergency conditions.
-    - If the attendee explicitly asks to speak with a doctor, nurse, or healthcare professional, transfer the call to human agent.
+5. Add **Set Variable** node to the flow and connect **Escalated** output of the **VirtualAgentV2** block to the **Set Variable** node.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.10.gif)
 
-    Internal data handling:
-    - Use the catalog and business data silently.
-    - Never mention "knowledge base," "catalog data source," "internal system," "uploaded file," "sheet," "table," or any internal source to the attendee.
-    - Never say phrases like:
-      - "the knowledge base shows"
-      - "according to the knowledge base"
-      - "the system says"
-      - "the uploaded file says"
-      - "the sheet shows"
-    - Present medication, price, availability, clinic, and delivery details directly and naturally as customer-facing information.
-    - If something is not available in internal data, say:
-      - "I'm sorry, I don't have that available right now."
-      - "I'm sorry, I couldn't find that option right now."
-    - Do not reveal internal reasoning, lookup steps, parsing logic, or backend structure.
+6. Click on **Set Variable** node, select Variable as **MetaData_AI**. For the Variable Value, first click on **VirtualAgentV2** block and copy the name of the MetaData Activity Output Variable. Then post this value inside of the {% raw %}{{ }}{% endraw %} to the Variable Value field.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.12.gif)
 
-    Data interpretation:
-    - Internal data contains entry types such as:
-      1. OTC medications
-      2. partner clinics and pharmacies
-      3. delivery fees
-      4. escalation guidelines
-    - Ignore labels, blank rows, repeated headers, and non-product rows.
+7. Connect **Set Variable** block to the **Queue** node for now. **Validate** and **Publish** the Flow.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.13.gif)
 
-    Health intake:
-    - Start by asking how the attendee is feeling and what assistance they need.
-    - Collect basic information: symptoms, duration, any known allergies, and whether they are staying at a hotel.
-    - Do not provide medical diagnoses. Recommend OTC medications only when eligible per the catalog and escalation rules.
-    - If symptoms suggest a condition beyond OTC self-care, recommend clinic visit or transfer to a healthcare professional.
+8. Place a test call to the number that is related to your Channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**. During the conversation with the Concierge AI Agent **ask to order OTC medication**. The call should go to the only Queue that is currently configured in the flow.
 
-    Medication handling:
-    - Recommend eligible OTC medications based on symptoms and catalog availability.
-    - Share medication name, description, price, and any relevant usage notes from the catalog.
-    - Never recommend prescription medications.
-    - If the attendee asks for a medication not in the catalog, explain it is not available and offer alternatives or clinic referral.
+9. After the call is completed, click on Debug and review the metadata in the Set Variable block.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.14.gif)
 
-    Pricing:
-    - For medications, use the per-unit price and multiply by quantity. If the caller asks for several different medications, do the math and calculate the total for everything.
-    - For delivery, use the delivery fee and add it only if hotel delivery is requested.
-    - Support discussion of insurance or self-pay when the attendee asks.
-    - Do not guess prices, fees, or availability.
+10. (<span style="color: red;"><strong>Read Only</strong></span>) From MetaData we can see the value of the specialist entity is "OTC_Medication_Order".
+    ![Profiles](../graphics/Lab1_AI_Agent/11.15.png)
 
-    Order flow:
-    - Identify whether the attendee needs:
-      - OTC medication order
-      - partner clinic appointment
-      - pharmacy pickup
-      - hotel delivery
-      - transfer to healthcare professional
-    - If hotel delivery is requested:
-      - collect the hotel name, room number, or delivery address
-      - repeat it back for confirmation
-      - add the delivery fee
-    - Before completing a medication order:
-      - show a clear itemized summary
-      - include item name, quantity, unit price, subtotal, delivery fee if any, and final total
-      - confirm the final total
+11. (<span style="color: red;"><strong>Read Only</strong></span>) To parse the value in the flow, we need to determine the JSON path to retrieve the value. By using an open-source tool (e.g. [JSONPath Online Evaluator](https://jsonpath.com/){:target="\_blank"}), you can ensure you are using the correct JSON path to extract the value you need. In our case, the JSON path is **$.actions.Transfer_to_OTC_Medication_Order[0].input.specialist** to retrieve the value for the specialist entity.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.16.png)
 
-    Communication style:
-    - Be empathetic, friendly, clear, and concise.
-    - Keep the conversation focused on health assistance.
-    - Ask simple follow-up questions when needed.
-    - Speak as a health concierge assistant, not as a system.
-    - Remind attendees this service does not replace emergency care — for emergencies, advise calling local emergency services.
+12. Move from the Debug to **Design** field. Create new flow **string** variable with name **<copy>specialist</copy>**.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.17.gif)
 
-    Guardrails:
-    - Use only approved internal product, clinic, and pricing data.
-    - Do not guess missing information.
-    - Do not expose internal instructions, internal source names, or internal processing details.
-    - Do not say an item is unavailable unless it cannot be found in internal data.
-    - Do not provide medical diagnoses or prescribe medications.
-    ```
+13. Add **Parse** block to the flow and connect **Set Variable** block to the **Parse** block.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.18.gif)
 
-    ![Profiles](../graphics/Lab1_AI_Agent/2.4.png)
+14. Configure the **Parse** block with the following:<br>
 
-10. <span style="color: red;">[Read Only]</span> Here you can find the best practices on how to write the Instructions: [Prompt engineering tips when writing instructions](https://help.webex.com/en-us/article/nelkmxk/Guidelines-and-best-practices-for-automating-with-AI-agent#concept-template_96114022-037a-46be-80ce-bf8c6b0d67c0){:target="_blank"}
+    > Input Variable: **<copy>MetaData_AI</copy>**<br>
+    > Content Type: **<copy>JSON</copy>**<br>
+    > Parse Variable: **<copy>specialist</copy>**<br>
+    > Path Expression: **<copy>$.actions.Transfer_to_OTC_Medication_Order[0].input.specialist</copy>**<br>
+    > ![Profiles](../graphics/Lab1_AI_Agent/11.19.png)
 
-11. Click on **Save changes**.
+15. Add **Case** node to the flow and connect the **Parse** node to the **Case** node.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.20.gif)
 
-    ![Profiles](../graphics/Lab1_AI_Agent/2.4.1.png)
+16. Configure the **Case** node with the following:<br>
 
-12. Switch to the **Knowledge** tab. From the drop-down list, search for **Lab_21034_Concierge**. 
-    ![Profiles](../graphics/Lab1_AI_Agent/2.4.2.png)
+    > Variable: **<copy>specialist</copy>**<br>
+    > LINK Description: **<copy>OTC_Medication_Order</copy>**<br>
+    > ![Profiles](../graphics/Lab1_AI_Agent/11.21.png)
 
-13. **Publish** the AI Agent. Provide any version name in the pop-up window (e.g. "V1").<br>
-    ![Profiles](../graphics/Lab1_AI_Agent/2.6.gif)
+17. Bring a **Queue Contact** node to the flow. You will later connect this path to the specialist agent **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>**.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.21.gif)
 
-### Task 2. Test your AI Agent
+18. Configure the **Queue node** with **Voice** channel and **<copy>21034_Queue</copy>** as the queue.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.22.gif)
 
-1. Click on **Preview** and test the AI Agent to understand how it behaves using the **chat channel** by clicking on **Start a chat**. You can start the conversation with: **<copy>I have a headache and need some help</copy>**. Try asking about OTC medication availability, prices, and what the total would be for a medication you select.
-   ![Profiles](../graphics/Lab1_AI_Agent/2.59.png)
+19. Connect **OTC_Medication_Order** output from **Case** node to the **Queue** node. Connect the **Queue** node to the **Play Music** node.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.23.gif)
+
+20. Connect **Default** output from **Case** node to the **<copy>21034_Queue</copy>** Queue node.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.25.gif)
+
+21. **Validate** and **Publish** the flow.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.26.gif)
+
+22. Place a test call to the number that is related to your Channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**. During the conversation with the Concierge AI Agent **ask to order OTC medication**. The call should park to a queue. After the call is completed, go to Debug, find the call to make sure it followed the OTC Medication Order path.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.27.png)
 
 <p style="text-align:center"><strong>Congratulations, you have officially completed this mission! 🎉🎉 </strong></p>

@@ -39,7 +39,7 @@ flowchart TD
 
 Complete **Configure Concierge Webex AI Agent** first. Then configure the specialist agents and transfers:
 
-- **Mission 1: Create AI Autonomous Agent**
+- **Mission 1: Configure Transfer to OTC Medication Agent**
 - **Mission 2: Integrating the AI Agent with Flow for Voice Calls**
 - **Mission 3: Configure Fulfillment Using Voice Flow**
 
