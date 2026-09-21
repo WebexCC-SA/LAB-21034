@@ -20,7 +20,7 @@ Integrate the AI Agent with the Voice Flow.
    ![Profiles](../graphics/Lab1_AI_Agent/2.48.adf.png)
 
 3. In the Voice Flow Designer, from the left side, move the **VirtualAgentV2** node and connect **Start Flow** to the **VirtualAgentV2** node.
-   ![Profiles](../graphics/Lab1_AI_Agent/2.48.ac.png)
+   ![Profiles](../graphics/Lab1_AI_Agent/2.48.ac.gif)
 
 4. Click **VirtualAgentV2**. In the **Contact Center AI Config**, select **Webex AI Agent (Autonomous)**. Under the **Virtual agent** config, select the AI Agent that you created in the previous mission — **<copy><w class="attendee"></w>_21034_Concierge</copy>**.
    ![Profiles](../graphics/Lab1_AI_Agent/2.48.ad1.gif)

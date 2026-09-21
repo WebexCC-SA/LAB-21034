@@ -37,11 +37,9 @@ flowchart TD
 
 ### In This Lab
 
-Complete **Configure Concierge Webex AI Agent** first. Then configure the specialist agents and transfers:
+Complete **Configure Concierge Webex AI Agent** first. Then configure the specialist transfer:
 
 - **Mission 1: Configure Transfer to OTC Medication Agent**
-- **Mission 2: Integrating the AI Agent with Flow for Voice Calls**
-- **Mission 3: Configure Fulfillment Using Voice Flow**
 
 ### Useful References
 

@@ -48,12 +48,28 @@ Configure a Transfer action on the **Concierge AI Agent** so that when the calle
 7. **Publish** the AI Agent.
    ![Profiles](../graphics/Lab1_AI_Agent/11.14.png)
 
-### Task 2. Configure voice flow to transfer callers to the OTC Medication Order agent
+### Task 2. Create a copy of the preconfigured Pharmacy Assistant agent
+
+This copy is the second AI Agent in the multi-agent flow. Callers who want to order OTC medication are transferred from the Concierge to this agent.
+
+1. In **Webex AI Agent Studio**, go to **AI Agents**.
+
+2. Search for the preconfigured Pharmacy Assistant agent **<copy>21034_Pharmacy_Assistant</copy>**.
+
+3. Open the agent menu and select **Copy**.
+
+4. Name the copied agent **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>** and save the copy.
+
+5. Open **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>** and confirm it is configured to complete OTC medication orders.
+
+6. **Publish** the copied agent.
+
+### Task 3. Configure voice flow to transfer callers to the OTC Medication Order agent
 
 1. Open your Voice flow **<copy>MultiAgent_21034_<w class="attendee"></w></copy>**. Click on **Edit** to edit the flow.
    ![Profiles](../graphics/Lab1_AI_Agent/11.7.gif)
 
-2. (<span style="color: red;"><strong>Read Only</strong></span>) In the previous task, we created an action with the **department** entity. The information about the value of the entity can be retrieved from the Activity Output Variable, specifically from **VirtualAgentV2XXXMetaData**.
+2. (<span style="color: red;"><strong>Read Only</strong></span>) In Task 1, we created an action with the **department** entity. The information about the value of the entity can be retrieved from the Activity Output Variable, specifically from **VirtualAgentV2XXXMetaData**.
    In the next steps, we will add the **Set Variable** block to see the MetaData in JSON format, and then you will add the **Parse** and **Case** nodes to handle the logic and send the call to the specialist destination, in our case we will send it to anohter AI Agent to order the OTC medications.
    ![Profiles](../graphics/Lab1_AI_Agent/11.11.png)
 
@@ -77,16 +93,16 @@ Configure a Transfer action on the **Concierge AI Agent** so that when the calle
 9. (<span style="color: red;"><strong>Read Only</strong></span>) From MetaData we can see the value of the department entity is "OTC_Medication_Order".
     ![Profiles](../graphics/Lab1_AI_Agent/11.15.png)
 
-11. (<span style="color: red;"><strong>Read Only</strong></span>) To parse the value in the flow, we need to determine the JSON path to retrieve the value. By using an open-source tool (e.g. [JSONPath Online Evaluator](https://jsonpath.com/){:target="\_blank"}), you can ensure you are using the correct JSON path to extract the value you need. In our case, the JSON path is **$.actions.Transfer_to_different_department[0].input.department** to retrieve the value for the department entity.
+10. (<span style="color: red;"><strong>Read Only</strong></span>) To parse the value in the flow, we need to determine the JSON path to retrieve the value. By using an open-source tool (e.g. [JSONPath Online Evaluator](https://jsonpath.com/){:target="\_blank"}), you can ensure you are using the correct JSON path to extract the value you need. In our case, the JSON path is **$.actions.Transfer_to_different_department[0].input.department** to retrieve the value for the department entity.
     ![Profiles](../graphics/Lab1_AI_Agent/11.16.png)
 
-12. Move from the Debug to **Design** field. Create new flow **string** variable with name **<copy>department</copy>**.
+11. Move from the Debug to **Design** field. Create new flow **string** variable with name **<copy>department</copy>**.
     ![Profiles](../graphics/Lab1_AI_Agent/11.17.gif)
 
-13. Add **Parse** block to the flow and connect **Set Variable** block to the **Parse** block.
+12. Add **Parse** block to the flow and connect **Set Variable** block to the **Parse** block.
     ![Profiles](../graphics/Lab1_AI_Agent/11.18.gif)
 
-14. Configure the **Parse** block with the following:<br>
+13. Configure the **Parse** block with the following:<br>
 
     > Input Variable: **<copy>MetaData_AI</copy>**<br>
     > Content Type: **<copy>JSON</copy>**<br>
@@ -94,31 +110,55 @@ Configure a Transfer action on the **Concierge AI Agent** so that when the calle
     > Path Expression: **<copy>$.actions.Transfer_to_different_department[0].input.department</copy>**<br>
     > ![Profiles](../graphics/Lab1_AI_Agent/11.19.png)
 
-15. Add **Case** node to the flow and connect the **Parse** node to the **Case** node.
+14. Add **Case** node to the flow and connect the **Parse** node to the **Case** node.
     ![Profiles](../graphics/Lab1_AI_Agent/11.20.gif)
 
-16. Configure the **Case** node with the following:<br>
+15. Configure the **Case** node with the following:<br>
 
     > Variable: **<copy>department</copy>**<br>
     > LINK Description: **<copy>OTC_Medication_Order</copy>**<br>
-    > ![Profiles](../graphics/Lab1_AI_Agent/11.21.png)
+    > ![Profiles](../graphics/Lab1_AI_Agent/11.21er.png)
 
-17. Bring one more **Queue Contact** node to the flow. You will later connect this path to the specialist agent **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>**.
-    ![Profiles](../graphics/Lab1_AI_Agent/11.21.gif)
-
-18. Configure the **Queue node** with **Voice** channel and **<copy>21034_Queue</copy>** as the queue.
+16. Brin one more **VirtualAgentV2** node and connect **OTC_Medication_Order** case node output to the new **VirtualAgentV2** node. 
     ![Profiles](../graphics/Lab1_AI_Agent/11.22.gif)
 
-19. Connect **OTC_Medication_Order** output from **Case** node to the **Queue** node. Connect the **Queue** node to the **Play Music** node.
-    ![Profiles](../graphics/Lab1_AI_Agent/11.23.gif)
+17. Click on this new **VirtualAgentV2** node and select the following:<br>
 
-20. Connect **Default** output from **Case** node to the **<copy>21034_Queue</copy>** Queue node.
-    ![Profiles](../graphics/Lab1_AI_Agent/11.25.gif)
+    > Contact Center AI Config: **Webex AI Agent**<br>
+    > Virtual Agent: **<copy>21034_OTC_Medication_Order</copy>**<br>
 
-21. **Validate** and **Publish** the flow.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.21.png)
+
+18. Open the **State Event** section and under **Event Data** enter the following (use the **copy** icon on the code block):
+
+    ``` json
+    {
+      "agent_metadata": {
+        "dynamic_welcome_message": true
+      }
+    }
+    ```
+
+    Enable this on the **receiving** agent — the new **VirtualAgentV2** node for **21034_OTC_Medication_Order**. Do **not** add it to the Concierge agent's VirtualAgentV2 node.
+
+    This setting is required for **multi-agent orchestration**. When the Concierge transfers the caller, Webex already shares the conversation history with **21034_OTC_Medication_Order**. With `dynamic_welcome_message` set to `true`, that specialist agent **skips its static welcome prompt**, so the caller does not hear a second greeting. The OTC agent continues the same conversation.
+
+    For more details, see [Multi-agent orchestration](https://help.webex.com/en-us/article/5a07xcb/Multi-agent-orchestration){:target="_blank"}.
+    > ![Profiles](../graphics/Lab1_AI_Agent/11.21ab.gif)
+
+19. Connect Escalated output from the new **VirtualAgentV2** node to the **QueueContact** node.
     ![Profiles](../graphics/Lab1_AI_Agent/11.26.gif)
 
-22. Place a test call to the number that is related to your Channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**. During the conversation with the Concierge AI Agent **ask to order OTC medication**. The call should park to a queue. After the call is completed, go to Debug, find the call to make sure it followed the OTC Medication Order path.
+20. Connect Handled output from the new **VirtualAgentV2** node to the **DisconnectContact** node.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.26a.gif)
+
+21. Connect Default output from **Case** node to  **QueueContact** node
+    ![Profiles](../graphics/Lab1_AI_Agent/11.26b.gif)
+
+22. **Validate** and **Publish** the flow.
+    ![Profiles](../graphics/Lab1_AI_Agent/11.26c.gif)
+
+23. Place a test call to the number that is related to your Channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**. During the conversation with the Concierge AI Agent **ask to order OTC medication**. The call should be transferred to the second AI Agent that is already preconfigured to be able to complete OTC order for you. 
     ![Profiles](../graphics/Lab1_AI_Agent/11.27.png)
 
 <p style="text-align:center"><strong>Congratulations, you have officially completed this mission! 🎉🎉 </strong></p>
