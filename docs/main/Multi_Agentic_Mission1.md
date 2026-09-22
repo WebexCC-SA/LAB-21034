@@ -53,16 +53,25 @@ Configure a Transfer action on the **Concierge AI Agent** so that when the calle
 This copy is the second AI Agent in the multi-agent flow. Callers who want to order OTC medication are transferred from the Concierge to this agent.
 
 1. In **Webex AI Agent Studio**, go to **AI Agents**.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.copy_1.gif)
 
-2. Search for the preconfigured Pharmacy Assistant agent **<copy>21034_Pharmacy_Assistant</copy>**.
+2. Search for the preconfigured Pharmacy Assistant agent **<copy>21034_OTC_Medication_Order_Template</copy>** and export the agent.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.copy_2.png)
 
-3. Open the agent menu and select **Copy**.
+3. Click on **Import agent**.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.copy_3.png)
 
-4. Name the copied agent **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>** and save the copy.
+4. Click on **Upload** and select the file you just downloaded in step 2.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.copy_4.png)
 
-5. Open **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>** and confirm it is configured to complete OTC medication orders.
+5. Name the copied agent **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>** and click **Import**.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.copy_5.png)
 
 6. **Publish** the copied agent.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.copy_6.png)
+
+7. (<span style="color: red;"><strong>Read Only</strong></span>) This AI Agent is already preconfigured with a **Fulfillment** action that collects the variables needed for an OTC order. Click **Actions** and open **Create_New_Order** to review it. Do not change this agent. You will reuse this configuration as the second AI Agent in the voice flow.
+   ![Profiles](../graphics/Lab1_AI_Agent/11.copy_7.png)
 
 ### Task 3. Configure voice flow to transfer callers to the OTC Medication Order agent
 
@@ -85,7 +94,7 @@ This copy is the second AI Agent in the multi-agent flow. Callers who want to or
 6. Connect **Set Variable** block to the **Queue** node for now. **Validate** and **Publish** the Flow.
    ![Profiles](../graphics/Lab1_AI_Agent/11.13.gif)
 
-7. Place a test call to the number that is related to your Channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**. During the conversation with the Concierge AI Agent **ask to order OTC medication**. The call should go to the only Queue that is currently configured in the flow.
+7. Place a test call to the number assigned to your Channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**. Talk to the Concierge AI Agent and ask to order OTC medication. For example: **<copy>I need some ibuprofen delivered to my hotel</copy>**. At this point the call should still go to the queue, because the specialist agent is not connected in the flow yet.
 
 8. After the call is completed, click on Debug and review the metadata in the Set Variable block.
    ![Profiles](../graphics/Lab1_AI_Agent/11.14.gif)
@@ -125,7 +134,7 @@ This copy is the second AI Agent in the multi-agent flow. Callers who want to or
 17. Click on this new **VirtualAgentV2** node and select the following:<br>
 
     > Contact Center AI Config: **Webex AI Agent**<br>
-    > Virtual Agent: **<copy>21034_OTC_Medication_Order</copy>**<br>
+    > Virtual Agent: **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>**<br>
 
     ![Profiles](../graphics/Lab1_AI_Agent/11.21.png)
 
@@ -139,9 +148,9 @@ This copy is the second AI Agent in the multi-agent flow. Callers who want to or
     }
     ```
 
-    Enable this on the **receiving** agent — the new **VirtualAgentV2** node for **21034_OTC_Medication_Order**. Do **not** add it to the Concierge agent's VirtualAgentV2 node.
+    Enable this on the **receiving** agent — the new **VirtualAgentV2** node for **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>**. Do **not** add it to the Concierge agent's VirtualAgentV2 node.
 
-    This setting is required for **multi-agent orchestration**. When the Concierge transfers the caller, Webex already shares the conversation history with **21034_OTC_Medication_Order**. With `dynamic_welcome_message` set to `true`, that specialist agent **skips its static welcome prompt**, so the caller does not hear a second greeting. The OTC agent continues the same conversation.
+    This setting is required for **multi-agent orchestration**. When the Concierge transfers the caller, Webex already shares the conversation history with **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>**. With `dynamic_welcome_message` set to `true`, that specialist agent **skips its static welcome prompt**, so the caller does not hear a second greeting. The OTC agent continues the same conversation.
 
     For more details, see [Multi-agent orchestration](https://help.webex.com/en-us/article/5a07xcb/Multi-agent-orchestration){:target="_blank"}.
     > ![Profiles](../graphics/Lab1_AI_Agent/11.21ab.gif)
@@ -158,7 +167,7 @@ This copy is the second AI Agent in the multi-agent flow. Callers who want to or
 22. **Validate** and **Publish** the flow.
     ![Profiles](../graphics/Lab1_AI_Agent/11.26c.gif)
 
-23. Place a test call to the number that is related to your Channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**. During the conversation with the Concierge AI Agent **ask to order OTC medication**. The call should be transferred to the second AI Agent that is already preconfigured to be able to complete OTC order for you. 
+23. Place a test call to the number assigned to your Channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**. Talk to the Concierge AI Agent and ask to order OTC medication. Confirm that the call is transferred to **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>** and that this second agent can complete the OTC order. 
     ![Profiles](../graphics/Lab1_AI_Agent/11.27.png)
 
 <p style="text-align:center"><strong>Congratulations, you have officially completed this mission! 🎉🎉 </strong></p>
