@@ -15,7 +15,7 @@ Transfer Action is a task that an AI agent performs by understanding user intent
 
 Your mission is to:
 
-Configure a Transfer action on the **Concierge AI Agent** so that when the caller wants to order over-the-counter (OTC) medication, the call is transferred to the specialist agent **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>**.
+Configure a Transfer action on the **Concierge AI Agent** so that when the caller wants to order over-the-counter (OTC) medication, the call is transferred to the specialist agent **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>**. That specialist agent completes the order and can also evaluate symptoms to determine whether the caller can try OTC medication or should go to urgent care.
 
 
 ---
@@ -50,7 +50,7 @@ Configure a Transfer action on the **Concierge AI Agent** so that when the calle
 
 ### Task 2. Create a copy of the preconfigured Pharmacy Assistant agent
 
-This copy is the second AI Agent in the multi-agent flow. Callers who want to order OTC medication are transferred from the Concierge to this agent.
+This copy is the second AI Agent in the two-agent flow. Callers who want to order OTC medication are transferred from the Concierge to this specialist. This agent can complete the OTC order and can also evaluate symptoms.
 
 1. In **Webex AI Agent Studio**, go to **AI Agents**.
    ![Profiles](../graphics/Lab1_AI_Agent/11.copy_1.gif)
@@ -70,7 +70,7 @@ This copy is the second AI Agent in the multi-agent flow. Callers who want to or
 6. **Publish** the copied agent.
    ![Profiles](../graphics/Lab1_AI_Agent/11.copy_6.png)
 
-7. (<span style="color: red;"><strong>Read Only</strong></span>) This AI Agent is already preconfigured with a **Fulfillment** action that collects the variables needed for an OTC order. Click **Actions** and open **Create_New_Order** to review it. Do not change this agent. You will reuse this configuration as the second AI Agent in the voice flow.
+7. (<span style="color: red;"><strong>Read Only</strong></span>) This specialist AI Agent is already preconfigured with a **Fulfillment** action that collects the variables needed for an OTC order. It can also evaluate symptoms to determine whether the caller can try OTC medication or should go to urgent care. Click **Actions** and open **Create_New_Order** to review the order action. Do not change this agent. You will reuse this configuration as the second AI Agent in the voice flow.
    ![Profiles](../graphics/Lab1_AI_Agent/11.copy_7.png)
 
 ### Task 3. Configure voice flow to transfer callers to the OTC Medication Order agent
@@ -79,7 +79,7 @@ This copy is the second AI Agent in the multi-agent flow. Callers who want to or
    ![Profiles](../graphics/Lab1_AI_Agent/11.7.gif)
 
 2. (<span style="color: red;"><strong>Read Only</strong></span>) In Task 1, we created an action with the **department** entity. The information about the value of the entity can be retrieved from the Activity Output Variable, specifically from **VirtualAgentV2XXXMetaData**.
-   In the next steps, we will add the **Set Variable** block to see the MetaData in JSON format, and then you will add the **Parse** and **Case** nodes to handle the logic and send the call to the specialist destination, in our case we will send it to anohter AI Agent to order the OTC medications.
+   In the next steps, we will add the **Set Variable** block to see the MetaData in JSON format, and then you will add the **Parse** and **Case** nodes to handle the logic and send the call to the specialist destination. In this lab we send the call to another AI Agent that can complete the OTC order and evaluate symptoms.
    ![Profiles](../graphics/Lab1_AI_Agent/11.11.png)
 
 3. Create a new flow variable with name **<copy>MetaData_AI</copy>**. Select type as **string** and then click **Save**.
@@ -167,7 +167,7 @@ This copy is the second AI Agent in the multi-agent flow. Callers who want to or
 22. **Validate** and **Publish** the flow.
     ![Profiles](../graphics/Lab1_AI_Agent/11.26c.gif)
 
-23. Place a test call to the number assigned to your Channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**. Talk to the Concierge AI Agent and ask to order OTC medication. Confirm that the call is transferred to **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>** and that this second agent can complete the OTC order. 
+23. Place a test call to the number assigned to your Channel **<copy><w class="attendee"></w>\_21034_Channel</copy>**. Talk to the Concierge AI Agent and ask to order OTC medication. Confirm that the call is transferred to **<copy><w class="attendee"></w>\_21034_OTC_Medication_Order</copy>** and that this specialist agent can complete the OTC order. You can also ask this specialist to evaluate symptoms to see whether you can try OTC medication or should go to urgent care. 
     ![Profiles](../graphics/Lab1_AI_Agent/11.27.png)
 
 <p style="text-align:center"><strong>Congratulations, you have officially completed this mission! 🎉🎉 </strong></p>

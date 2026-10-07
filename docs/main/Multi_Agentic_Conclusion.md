@@ -4,10 +4,10 @@ In this lab, you successfully configured **Multi Agentic Flow** for **Cisco Even
 
 The inbound call now follows this history:
 
-- The **Concierge AI Agent** answers the initial questions, office hours, Cisco Event Pharmacy policies, and other general questions.
-- If the caller wants to **order OTC medication**, the call transfers to another **Webex AI Agent** that completes the order and schedules delivery.
-- If the caller wants to **evaluate symptoms**, the call moves to a **third-party AI Agent**. That agent determines whether the caller can try OTC medication or should seek urgent medical assistance and contact a doctor.
+- The **Concierge AI Agent** answers questions about the Cisco Event Health program, office hours, Cisco Event Pharmacy policies, and other general questions.
+- If the caller wants to **order OTC medication**, the call transfers to a **specialist AI Agent** that completes the order and schedules delivery.
+- The same specialist agent can also **evaluate symptoms** to determine whether the caller can try OTC medication or should go to urgent care.
 
 ---
 
-This setup showcases a complete multi-agent workflow — from first-line Concierge questions, to medication ordering and delivery, to third-party symptom evaluation.
+This setup showcases a two-agent workflow — from first-line Concierge questions, to a specialist that can complete an OTC order and evaluate symptoms.

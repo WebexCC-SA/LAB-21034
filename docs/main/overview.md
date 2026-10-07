@@ -5,7 +5,10 @@ icon: material/bullseye-arrow
 
 ## Get your login credentials
 
-On your screen, look for the file named Credentials_21034_(ID). Open the file; you should see the following information:
+On the top right of the screen you will see the file named **Webex_One_Lab_21034_Attendee_ID**.
+   ![Profiles](../graphics/Lab1_AI_Agent/Login5.1.png)
+
+Open the file. It will have the lab guide, login credentials, and the ID. You need to enter this ID in the next step to prebuild your lab for your ID.
    ![Profiles](../graphics/Lab1_AI_Agent/Login5.png)
 
 As the next step, you need to set up your lab for your Attendee ID. In this case, you will all do configuration on the same tenant without interrupting other users.
@@ -25,7 +28,7 @@ As the next step, you need to set up your lab for your Attendee ID. In this case
 
 You are designing **Cisco Event Health** — a multi-agent health assistance service for Cisco and Webex event attendees who are traveling and away from their regular healthcare providers.
 
-Attendees call a single number whenever they feel unwell or need healthcare assistance while at an event. The **Concierge AI Agent** answers first. Depending on what the caller needs, the call is transferred to another Webex AI Agent or to a third-party AI Agent.
+Attendees call a single number whenever they feel unwell or need healthcare assistance while at an event. The **Concierge AI Agent** answers first. If the caller wants to order over-the-counter (OTC) medication, the Concierge transfers the call to a **specialist AI Agent**.
 
 ### Business Problem
 
@@ -49,21 +52,21 @@ This benefit is offered as a way to thank attendees for joining the event and to
 
 ### Call history
 
-1. The call goes to the **Concierge AI Agent**. This agent answers the initial questions: office hours, Cisco Event Pharmacy policies, and other general questions.
-2. If the caller wants to **order OTC medication**, the Concierge transfers the call to another **Webex AI Agent**. That agent completes the order and schedules delivery.
-3. If the caller wants to **evaluate symptoms**, the Concierge moves the call to a **third-party AI Agent**. That agent evaluates symptoms to determine whether the caller can try OTC medication, or should seek urgent medical assistance and contact a doctor.
+1. The call goes to the **Concierge AI Agent**. This agent answers questions about the Cisco Event Health program: office hours, Cisco Event Pharmacy policies, and other general questions.
+2. If the caller wants to **order OTC medication**, the Concierge transfers the call to a **specialist AI Agent**. That agent completes the order and schedules delivery.
+3. The same specialist agent can also **evaluate symptoms** to determine whether the caller can try OTC medication, or should go to urgent care.
 
 ```mermaid
 flowchart TD
     Caller[Caller] --> Voice[Voice call]
     Voice --> Concierge[Concierge AI Agent]
-    Concierge --> FAQ[Initial questions, office hours,<br/>Cisco Event Pharmacy policies]
-    Concierge -->|Order OTC medication| Fulfillment[Webex AI Agent<br/>Fulfillment AI Agent]
-    Fulfillment --> Complete[Complete the order]
-    Fulfillment --> Delivery[Schedule the delivery]
-    Concierge -->|Evaluate symptoms| ThirdParty[Third-party AI Agent<br/>Symptom evaluation]
-    ThirdParty --> OTC[Try OTC medication]
-    ThirdParty --> Urgent[Seek urgent medical assistance<br/>and contact a doctor]
+    Concierge --> FAQ[Cisco Event Health program,<br/>office hours, pharmacy policies]
+    Concierge -->|Order OTC medication| Specialist[Specialist AI Agent<br/>OTC Medication Order]
+    Specialist --> Complete[Complete the order]
+    Specialist --> Delivery[Schedule the delivery]
+    Specialist --> Symptoms[Evaluate symptoms]
+    Symptoms --> OTC[Try OTC medication]
+    Symptoms --> Urgent[Seek urgent care]
 ```
 
 ## Disclaimer
