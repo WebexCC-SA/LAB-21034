@@ -39,3 +39,4 @@ flowchart TD
 Complete **Configure Concierge Webex AI Agent** first. Then configure the specialist transfer:
 
 - **Mission 1: Configure Transfer to OTC Medication Agent**
+- **Challenge:** Create a Webex One event AI Agent and transfer callers from the Concierge to that agent
