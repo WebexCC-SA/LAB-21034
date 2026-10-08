@@ -97,7 +97,7 @@ Your mission is to:
 
     ![Profiles](../graphics/Lab1_AI_Agent/2.4.1.png)
 
-12. Switch to the **Knowledge** tab. From the drop-down list, search for **Lab_21034_Concierge**. 
+12. Switch to the **Knowledge** tab. From the drop-down list, search for **<copy>Lab_21034_Concierge</copy>**. 
     ![Profiles](../graphics/Lab1_AI_Agent/2.4.2.png)
 
 13. **Save changes** and **Publish** the AI Agent. Provide any version name in the pop-up window (e.g. "V1").<br>

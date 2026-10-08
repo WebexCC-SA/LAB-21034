@@ -39,8 +39,3 @@ flowchart TD
 Complete **Configure Concierge Webex AI Agent** first. Then configure the specialist transfer:
 
 - **Mission 1: Configure Transfer to OTC Medication Agent**
-
-### Useful References
-
-- [Webex AI Agent Studio Administration Guide](https://help.webex.com/en-us/article/ncs9r37/Webex-AI-Agent-Studio-Administration-guide){:target="_blank"}
-- [Guidelines and best practices for automating with AI agent](https://help.webex.com/en-us/article/nelkmxk/Guidelines-and-best-practices-for-automating-with-AI-agent){:target="_blank"}
